@@ -18,3 +18,4 @@ console.log(nome.slice(0,3) + nome[5].toUpperCase());
 
 
 // funções são rotinas no meu programa
+function nomedafuncao(variavel)
