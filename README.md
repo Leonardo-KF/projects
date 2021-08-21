@@ -1,2 +1,2 @@
 # Projects
-JS rojects blue class
+JS projects blue class
