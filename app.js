@@ -1,4 +1,3 @@
-let x = prompt('digite algo: ')
 let nome = 'leonardo';
 console.log(nome);
 let idade = '18';
