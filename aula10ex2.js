@@ -30,9 +30,15 @@ while (true){
         let user = valdad(i, prompt(`Digite o ${i} do veiculo: `));
         carros[i].push(user)
     }
-    let cont = String(prompt('Deseja cadastrar mais um veiculo [S/N]? ')).toUpperCase()
+    while (true){ 
+        let cont = String(prompt('Deseja cadastrar mais um veiculo [S/N]? ')).toUpperCase()
+        if (cont == 'N' || cont == 'S'){
+            break
+        } else {
+            console.log('Você digitou uma opção invalida! Por favor tente novamente.')
+        }
+    }
     if (cont == 'N'){
         break
     }
 } 
-console.log(carros[id])
