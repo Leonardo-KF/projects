@@ -1,4 +1,7 @@
 const prompt = require("prompt-sync")();
+function formatmoedas(valor) {
+  return valor.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
+}
 console.log('Calculadora de salarios da empresa "xpto"!');
 let now = new Date();
 while (true) {
@@ -26,7 +29,7 @@ salario = salario * percent;
 var anosdeaument = 1;
 while (true) {
   console.log(
-    `O seu salario após o ${anosdeaument}º ano foi: R$${salario.toFixed(2)}`
+    `O seu salario após o ${anosdeaument}º ano foi: ${formatmoedas(salario)}`
   );
   percent = (percent - 1) * 2 + 1;
   salario = salario * percent;
