@@ -1,6 +1,10 @@
 const prompt = require("prompt-sync")();
+function formatmoedas(valor) {
+  return valor.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
+}
+
 function valdad(ind, val) {
-  if (ind == "id" || ind == "preço") {
+  if (ind == "id" || ind == "preço" || ind == "ano") {
     while (true) {
       if (!isNaN(val)) {
         val = parseInt(val);
@@ -26,7 +30,7 @@ function valdad(ind, val) {
   }
 }
 
-var carros = { id: [], modelo: [], marca: [], nome: [], preço: [] };
+var carros = { id: [], modelo: [], marca: [], nome: [], ano: [], preço: [] };
 
 while (true) {
   for (let i in carros) {
@@ -34,7 +38,7 @@ while (true) {
     carros[i].push(user);
   }
   while (true) {
-    let cont = String(
+    var cont = String(
       prompt("Deseja cadastrar mais um veiculo [S/N]? ")
     ).toUpperCase();
     if (cont == "N" || cont == "S") {
@@ -46,6 +50,49 @@ while (true) {
     }
   }
   if (cont == "N") {
+    break;
+  }
+}
+
+console.log("-----> Revenda de carros <-----");
+console.log("As opções que temos disponiveis em estoque são!");
+for (i in carros.id) {
+  console.log(
+    `${carros.id[i]}: ${carros.marca[i]} - ${carros.nome[i]}, ${carros.ano[i]}. ${carros.modelo[i]}. Por: R$${carros.preço[i]}`
+  );
+}
+var valorcompra = 0;
+while (true) {
+  while (true) {
+    var compras = parseInt(
+      prompt("Digite o código do carro que deseja comprar: ")
+    );
+    let indva = carros.id.indexOf(compras);
+    if (indva != -1) {
+      valorcompra += carros.preço[indva];
+      break;
+    } else {
+      console.log(
+        "O id que você digitou não corresponde a nenhum carro na nossa lista!"
+      );
+    }
+  }
+  console.log(
+    `Até o momento o valor da sua compra é: ${formatmoedas(valorcompra)}`
+  );
+  while (true) {
+    var continuar = String(
+      prompt("Deseja continuar comprando [S/N]? ")
+    ).toUpperCase();
+    if (continuar[0] == "S" || continuar[0] == "N") {
+      break;
+    } else {
+      console.log(
+        "Você digitou uma opção inválida! Por favor digite uma opção valida."
+      );
+    }
+  }
+  if (continuar[0] == "N") {
     break;
   }
 }
