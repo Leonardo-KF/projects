@@ -41,19 +41,27 @@ while (true) {
     ).toUpperCase();
     if (cont[0] == "S" || cont[0] == "N") {
       break;
+    } else {
+      console.log(
+        "Você digitou uma opção invalida! Por favor digite novamente."
+      );
     }
   }
   if (cont[0] == "N") {
     break;
   }
 }
+console.log("==================================================");
 console.log(`O numero de Homens cadastrados foi: ${smas.nome.length}`);
 console.log("Sendo eles:");
+console.log("==================================================");
 for (i in smas.nome) {
   console.log(`${smas.nome[i]} com ${smas.idade[i]} anos de idade`);
 }
+console.log("==================================================");
 console.log(`O numero de Mulheres cadastradas foi: ${sfem.nome.length}`);
 console.log("Sendo elas:");
+console.log("==================================================");
 for (i in sfem.nome) {
   console.log(`${sfem.nome[i]} com ${sfem.idade[i]} anos de idade`);
 }
