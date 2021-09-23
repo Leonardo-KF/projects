@@ -63,7 +63,8 @@ h2 {
   font-size: 30px;
   border: 4px solid skyblue;
 }
-#button1:hover {
+#button1:hover,
+#button1:active select {
   background-color: #82b0f5;
 }
 h3 {
